@@ -3,6 +3,17 @@
   --color-light: #ffe8cc;
   --color-medium: #ffa94d;
   --color-dark: #ff922b;
+
+  --brown-800: 22 32 26;
+  --brown-600: 22 39 40;
+  --darkgreen: 66 26 28;
+  --lightoffset: 32 50 90;
+  --brownnude: 29 35 61;
+
+  --shadow-m: inset
+  0 2px 2px hsl(var(--brown-800) / 1),
+  0 2px 4px hsl(var(--brown-800) / .75),
+  0 4px 6px hsl(var(--brown-600) / .55);
 }
 
 * {
@@ -73,9 +84,18 @@ body {
   background-color: var(--color-lightest);
 }
 
+.avatar-box {
+  display: flex;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: var(--shadow-m);
+}
+
 .sidebar li img {
   border-radius: 50%;
   width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
   grid-row: span 2;
 }
 

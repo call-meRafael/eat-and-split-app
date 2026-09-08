@@ -1,7 +1,7 @@
 "use strict";
-import dexterPic from "./assets/dexter.jpg";
-import patrickPic from "./assets/patrick.jpg";
-import johanPic from "./assets/johan.jpg";
+import dexterPic from "/src/assets/dexter.jpg";
+import patrickPic from "/src/assets/jane.jpg";
+import johanPic from "/src/assets/johan.jpg";
 
 export const initialFriends = [
   {
