@@ -10,10 +10,15 @@
   --lightoffset: 32 50 90;
   --brownnude: 29 35 61;
 
-  --shadow-m: inset
-  0 2px 2px hsl(var(--brown-800) / 1),
-  0 2px 4px hsl(var(--brown-800) / .75),
-  0 4px 6px hsl(var(--brown-600) / .55);
+  --shadow-m:
+    inset 0 2px 2px hsl(var(--brown-800) / 1),
+    0 2px 4px hsl(var(--brown-800) / 0.75),
+    0 4px 6px hsl(var(--brown-600) / 0.55);
+
+  --ff-sans1: "Inter", sans-serif;
+  --ff-sans2: "Montserrat", sans-serif;
+  --ff-serif: "Playfair Display", serif;
+  --ff-mono: "Quicksand", monospace;
 }
 
 * {
@@ -24,8 +29,9 @@
 
 html {
   font-size: 62.5%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 body {
@@ -58,6 +64,22 @@ body {
 
 .button:hover {
   background-color: var(--color-dark);
+}
+
+.button-add-friend {
+  background-color: var(--color-medium);
+  font-variant: small-caps;
+  color: #343a40;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: var(--color-dark);
+  }
 }
 
 .sidebar ul {
@@ -149,14 +171,16 @@ form {
 }
 
 label {
+  font-family: var(--ff-sans1);
+  font-size: clamp(0.8rem, 1.5vw + 1rem, 1.425rem);
   font-weight: 500;
 }
 
-label::first-letter {
+/* label::first-letter {
   display: inline-block;
   margin-right: 4px;
   font-size: 1.8rem;
-}
+} */
 
 input,
 select {
@@ -187,4 +211,14 @@ form h2 {
   text-transform: uppercase;
   letter-spacing: -0.5px;
   margin-bottom: 1.6rem;
+}
+
+.open {
+  display: block;
+  visibility: inherit;
+}
+
+.close {
+  display: none;
+  visibility: hidden;
 }

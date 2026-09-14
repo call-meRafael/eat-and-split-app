@@ -1,4 +1,4 @@
-
+import { Button } from "./buttonAddFriend";
 
 export const Friend = ({ friend, formatBalance }) => {
   return (
@@ -18,7 +18,7 @@ export const Friend = ({ friend, formatBalance }) => {
         </p>
       )}
       {friend.balance === 0 && <p>Você e {friend.name} estão quites.</p>}
-      <button className="button">Selecionar</button>
+      <Button>Selecionar</Button>
     </li>
   );
 };
