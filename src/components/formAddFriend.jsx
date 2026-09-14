@@ -3,6 +3,10 @@ import { UserAvatar } from "./userAvatar";
 import { UserName } from "./user";
 
 export const FormAddFriend = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  }
+
   return (
     <form className="form-add-friend">
       <label htmlFor="friend-name">
@@ -13,7 +17,7 @@ export const FormAddFriend = () => {
       </label>
       <input type="text" name="image-url" id="iImage-url" />
 
-      <Button>Adicionar</Button>
+      <Button onClick={handleSubmit}>Adicionar</Button>
     </form>
   );
 };
