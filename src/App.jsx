@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FriendsList } from "./components/friendsList";
 import { FormAddFriend } from "./components/formAddFriend";
 import { Button } from "./components/buttonAddFriend";
+import { FormSplitBill } from "./components/formSplitBill";
 
 export default function App() {
   const [isOpen, setOpen] = useState(false);
@@ -29,6 +30,7 @@ export default function App() {
           {isOpen ? "Fechar" : "Adicionar amigo"}
         </Button>
       </aside>
+      <FormSplitBill />
     </div>
   );
 }
