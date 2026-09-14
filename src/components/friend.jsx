@@ -1,3 +1,5 @@
+
+
 export const Friend = ({ friend, formatBalance }) => {
   return (
     <li>
@@ -16,6 +18,7 @@ export const Friend = ({ friend, formatBalance }) => {
         </p>
       )}
       {friend.balance === 0 && <p>Você e {friend.name} estão quites.</p>}
+      <button className="button">Selecionar</button>
     </li>
   );
 };
