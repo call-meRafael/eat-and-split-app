@@ -14,9 +14,9 @@
   --brownnude: 29 35 61;
 
   --shadow-m:
-    inset 0 2px 2px hsl(var(--brown-800) / 1),
-    0 2px 4px hsl(var(--brown-800) / 0.75),
-    0 4px 6px hsl(var(--brown-600) / 0.55);
+    inset 0 2px 2px hsl(var(--brown-800) / .60),
+    0 2px 4px hsl(var(--brown-800) / 0.55),
+    0 4px 6px hsl(var(--brown-600) / 0.25);
 
   --ff-sans1: "Inter", sans-serif;
   --ff-sans2: "Montserrat", sans-serif;
