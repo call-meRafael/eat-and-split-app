@@ -154,7 +154,7 @@ img {
     & > p {
       font-size: var(--space-xs);
       font-family: var(--ff-sans2);
-      text-shadow: 1px 1px 1px hsl(var(--black) / .35);
+      text-shadow: 0px 1px 1px hsl(var(--black) / .35);
     }
   }
 }
