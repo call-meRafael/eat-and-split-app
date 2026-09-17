@@ -9,10 +9,10 @@ export const FormAddFriend = () => {
 
   return (
     <form className="form-add-friend">
-      <label htmlFor="friend-name">
+      <label htmlFor="friend-name" id="friend-name">
         <UserName  />Usuário</label>
       <input type="text" name="friend-name" id="iFriend-name" placeholder="Nome do amigo"/>
-      <label htmlFor="friend-image">
+      <label htmlFor="friend-image" id="friend-image">
         <UserAvatar /> Foto{" "}
       </label>
       <input type="text" name="image-url" id="iImage-url" placeholder="URL da foto"/>

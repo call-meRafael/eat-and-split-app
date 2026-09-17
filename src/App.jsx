@@ -37,14 +37,14 @@ export default function App() {
               animate={{ opacity: 1, height: "auto", y: 0 }}
               exit={{ opacity: 0, height: 0, y: -20 }}
               transition={{ type: "spring", duration: 0.5, bounce: 0.2 }}
-              style={{ overflow: "hidden" }} // Evita bugs visuais enquanto estica/colapsa
+              style={{ overflow: "hidden", paddingInline: "0.5rem" }} // Evita bugs visuais enquanto estica/colapsa
             >
               <FormAddFriend />
             </motion.div>
           )}
         </AnimatePresence>
 
-        <motion.div layout style={{ width: "100%", display: "flex", justifyContent: "flex-end" }}>
+        <motion.div layout style={{ width: "100%", display: "flex", justifyContent: "flex-end", paddingInline: "0.5rem" }}>
           <Button onClick={handleClick} className="button-add-friend">
             {isOpen ? "Fechar" : "Adicionar amigo"}
           </Button>

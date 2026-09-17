@@ -2,16 +2,17 @@
    TOKENS
    ========================================================================== */
 :root {
-  --color-lightest: #fff4e6;
-  --color-light: #ffe8cc;
+  --color-lightest: 34 100 95; /*#fff4e5*/
+  --color-light: 33 100 90; /*#ffe8cc*/
   --color-medium: #ffa94d;
   --color-dark: #ff922b;
 
-  --brown-800: 22 32 26;
-  --brown-600: 22 39 40;
-  --darkgreen: 66 26 28;
-  --lightoffset: 32 50 90;
-  --brownnude: 29 35 61;
+  --brown-800: 22 32 26; /*#593E2E*/
+  --brown-600: 22 39 40; /*#8C5B3E*/
+  --darkgreen: 66 26 28; /*#555934 */
+  --lightoffset: 32 50 90; /*#F2E6D8*/
+  --brownnude: 29 35 61; /*#BF9B7A*/
+  --black: 0 0 0;
 
   --shadow-s:
     inset 0 1px 2px #ffffff30, 0 1px 2px #00000030, 0 2px 4px #00000015;
@@ -56,6 +57,7 @@ body {
   min-height: 100svh; /* acompanha a UI do navegador no celular */
   color: #495057;
   display: flex;
+  flex-flow: column wrap;
   padding: clamp(1.2rem, 1rem + 1.5vw, 3.2rem);
 
   @media (min-width: 48rem) {
@@ -79,6 +81,7 @@ img {
   grid-template-columns: 1fr;
   gap: var(--space-md);
   align-content: start;
+  padding-block: var(--space-lg);
 }
 
 /* ==========================================================================
@@ -88,7 +91,8 @@ img {
 .button-add-friend {
   background-color: var(--color-medium);
   font-variant: small-caps;
-  color: #343a40;
+  color: hsl(var(--color-lightest) / 1);
+  text-shadow: 1px 1px 1px hsl(var(--darkgreen) / 1);
   padding: var(--space-2xs) var(--space-xs);
   border: none;
   border-radius: var(--radius-md);
@@ -96,6 +100,7 @@ img {
   cursor: pointer;
   transition: 0.3s;
   max-width: 100%;
+  box-shadow: var(--shadow-s);
 }
 
 @media (hover: hover) {
@@ -121,6 +126,7 @@ img {
   margin-bottom: clamp(1.2rem, 1rem + 1vw, 2rem);
   border-radius: var(--radius-md);
   border: none;
+  padding-inline: 0.3rem;
 }
 
 .sidebar li {
@@ -131,8 +137,8 @@ img {
   padding: var(--space-xs);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-s);
+  background-color: hsl(var(--color-light) / 1);
   transition: 0.5s;
-
 
   & > :nth-last-of-type(1) {
     display: flex;
@@ -140,19 +146,26 @@ img {
     gap: 0.28rem;
     /* outline: 1px solid red; */
 
+    & > h3 {
+      font-family: var(--ff-serif);
+      color: hsl(var(--darkgreen) / 1);
+    }
+
     & > p {
-      font-size: var(--space-sm);
+      font-size: var(--space-xs);
+      font-family: var(--ff-sans2);
+      text-shadow: 1px 1px 1px hsl(var(--black) / .35);
     }
   }
 }
 
 .selected {
-  background-color: var(--color-lightest);
+  background-color: hsl(var(--color-lightest) / 1);
 }
 
 @media (hover: hover) {
   .sidebar li:hover {
-    background-color: var(--color-lightest);
+    background-color: hsl(var(--color-lightest) / 1);
   }
 }
 
@@ -205,8 +218,6 @@ img {
   color: #e03131;
 }
 
-
-
 /* ==========================================================================
    FORMULÁRIOS
    ========================================================================== */
@@ -216,7 +227,7 @@ form {
   align-items: center;
   gap: var(--space-xs);
   min-width: 0;
-  background-color: var(--color-lightest);
+  background-color: hsl(var(--color-lightest) / 1);
   border-radius: var(--radius-md);
 }
 
@@ -239,7 +250,9 @@ label {
   align-items: center;
   font-family: var(--ff-sans1);
   font-size: clamp(1.2rem, 1rem + 0.6vw, 1.425rem);
-  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
 }
 
 input,
@@ -251,7 +264,7 @@ select {
   min-width: 0; /* permite o campo encolher dentro do grid sem estourar */
   padding: 0.7rem;
   text-align: center;
-  border: 1px solid var(--color-light);
+  border: 1px solid hsl(var(--color-light) / 1);
   border-radius: var(--radius-sm);
   transition: 0.3s;
 }
