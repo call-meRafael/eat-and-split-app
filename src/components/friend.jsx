@@ -10,7 +10,7 @@ export const Friend = ({ friend, formatBalance }) => {
         <h3>{friend.name} {friend.lastName}</h3>
         {friend.balance < 0 && (
           <p className="red">
-            Você deve {friend.name}: {formatBalance(Math.abs(friend.balance))}
+            Você deve a {friend.name}: {formatBalance(Math.abs(friend.balance))}
           </p>
         )}
         {friend.balance > 0 && (

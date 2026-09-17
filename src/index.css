@@ -149,12 +149,13 @@ img {
     & > h3 {
       font-family: var(--ff-serif);
       color: hsl(var(--darkgreen) / 1);
+      text-shadow: 1px 1px 1px hsl(var(--color-lightest) / 1);
     }
 
     & > p {
       font-size: var(--space-xs);
       font-family: var(--ff-sans2);
-      text-shadow: 0px 1px 1px hsl(var(--black) / .35);
+      text-shadow: 0px 1px 1px hsl(var(--black) / 0.35);
     }
   }
 }
