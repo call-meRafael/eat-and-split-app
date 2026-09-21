@@ -137,7 +137,7 @@ img {
   padding: var(--space-xs);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-s);
-  background-color: hsl(var(--color-light) / 1);
+  background-color: hsl(var(--color-lightest) / 1);
   transition: 0.5s;
 
   & > :nth-last-of-type(1) {
@@ -166,7 +166,7 @@ img {
 
 @media (hover: hover) {
   .sidebar li:hover {
-    background-color: hsl(var(--color-lightest) / 1);
+    background-color: hsl(var(--color-light) / 1);
   }
 }
 
@@ -274,6 +274,10 @@ input:focus,
 select:focus {
   outline: none;
   border: 1px solid var(--color-dark);
+}
+
+input::placeholder {
+  opacity: .75;
 }
 
 form .button {

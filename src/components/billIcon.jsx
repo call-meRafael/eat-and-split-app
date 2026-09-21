@@ -1,6 +1,6 @@
 
 
-export const BillIcon = ({ size = "25", color = "#000" }) => {
+export const BillIcon = ({ size = "26px", color = "#000" }) => {
   return (
     <svg
       width={size}
