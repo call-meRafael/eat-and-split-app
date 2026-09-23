@@ -245,6 +245,11 @@ form {
   padding: var(--space-md) var(--space-lg);
 }
 
+.bill-value {
+  display: flex;
+  gap: 1.5rem;
+}
+
 label {
   display: flex;
   gap: 0.4rem;
