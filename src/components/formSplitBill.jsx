@@ -1,5 +1,6 @@
 import { BillIcon } from "./billIcon";
 import { ExpenseIcon } from "./expenses";
+import { UserName } from "./user";
 
 export const FormSplitBill = () => {
   return (
@@ -28,6 +29,23 @@ export const FormSplitBill = () => {
         id="iExpense-value"
         placeholder="insira seu gasto"
       />
+
+      <label className="bill-value">
+        <UserName />X deve pagar
+      </label>
+      <input
+        type="text"
+        name="friend-expense"
+        id="iFreind-expense"
+        placeholder="valor"
+        disabled
+      />
+
+      <label className="bill-value">Quem está pagando a conta?</label>
+      <select name="friend-select" id="iUser-select">
+        <option value="user">Você</option>
+        <option value="friend">X</option>
+      </select>
     </form>
   );
 };
