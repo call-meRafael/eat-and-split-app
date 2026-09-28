@@ -52,16 +52,19 @@ export const FormAddFriend = ({ onAddFriend }) => {
         id="iFriend-name"
         placeholder="Nome do amigo"
       />
-      <label htmlFor="iImage-url" id="friend-image">
-        <UserAvatar /> Foto{" "}
-      </label>
-      <input
-        type="file"
-        onChange={handleImageChange}
-        name="image-url"
-        id="iImage-url"
-        accept="image/*"
-      />
+      <div className="img-box">
+        <UserAvatar />
+        <label htmlFor="iImage-url" className="file-button">
+          Escolher arquivo
+        </label>
+        <input
+          type="file"
+          id="iImage-url"
+          onChange={handleImageChange}
+          accept="image/*"
+          hidden // input some, mas o label continua funcionando
+        />
+      </div>
 
       {image && <img src={URL.createObjectURL(image)} alt={name} />}
 
