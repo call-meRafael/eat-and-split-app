@@ -4,7 +4,7 @@ import { UserName } from "./user";
 import { useState } from "react";
 // import { img } from "framer-motion/client";
 
-export const FormAddFriend = () => {
+export const FormAddFriend = ({ onAddFriend }) => {
   const [name, setName] = useState("");
   const [image, setImage] = useState(null);
 
@@ -14,14 +14,32 @@ export const FormAddFriend = () => {
     if (file) {
       setImage(file);
     }
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+     if (!name.trim()) return;
+
+      const imageUrl = image
+        ? URL.createObjectURL(image)
+        : "avatar-padrao.webp";
+
+    const newFriend = {
+      id: crypto.randomUUID(),
+      name: name,
+      lastName: "",
+      image: imageUrl,
+      balance: 0,
+    };
+
+    onAddFriend(newFriend);
+    setName("");
+    setImage(null);
   };
 
   return (
-    <form className="form-add-friend">
+    <form className="form-add-friend" onSubmit={handleSubmit}>
       <label htmlFor="friend-name" id="friend-name">
         <UserName />
         Usuário
@@ -34,7 +52,7 @@ export const FormAddFriend = () => {
         id="iFriend-name"
         placeholder="Nome do amigo"
       />
-      <label htmlFor="friend-image" id="friend-image">
+      <label htmlFor="iImage-url" id="friend-image">
         <UserAvatar /> Foto{" "}
       </label>
       <input
@@ -45,14 +63,9 @@ export const FormAddFriend = () => {
         accept="image/*"
       />
 
-      {image && (
-        <img
-          src={URL.createObjectURL(image)}
-          alt={name}
-        />
-      )}
+      {image && <img src={URL.createObjectURL(image)} alt={name} />}
 
-      <Button onClick={handleSubmit}>Adicionar</Button>
+      <Button type="submit">Adicionar</Button>
     </form>
   );
 };

@@ -1,8 +1,8 @@
-import { initialFriends } from "../data";
+
 import { Friend } from "./friend";
 
-export const FriendsList = ({ formatBalance }) => {
-    const friends = initialFriends;
+
+export const FriendsList = ({ friends, formatBalance }) => {
     return (
         <ul>
             {friends.map((friend) => (

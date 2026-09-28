@@ -4,12 +4,19 @@ import { FriendsList } from "./components/friendsList";
 import { FormAddFriend } from "./components/formAddFriend";
 import { Button } from "./components/buttonAddFriend";
 import { FormSplitBill } from "./components/formSplitBill";
+import { initialFriends } from "./data";
+
 
 export default function App() {
+  const [friends, setFriends] = useState([...initialFriends]);
+
+  const handleAddFriends = (newFriend) => {
+    setFriends((currentFriends) => [...currentFriends, newFriend]);
+  } 
   const [isOpen, setOpen] = useState(false);
 
   const handleClick = () => {
-    setOpen(!isOpen);
+    setOpen((o) => !o);
   };
 
   const formatBalance = (balance) => {
@@ -24,7 +31,7 @@ export default function App() {
   return (
     <div className="app">
       <motion.aside className="sidebar">
-        <FriendsList formatBalance={formatBalance} />
+        <FriendsList friends={friends} formatBalance={formatBalance} />
 
         {/* {isOpen && <FormAddFriend />} */}
         {/* 2. Envolva a renderização condicional com AnimatePresence */}
@@ -39,7 +46,7 @@ export default function App() {
               transition={{ type: "spring", duration: 0.5, bounce: 0.2 }}
               style={{ overflow: "hidden", paddingInline: "0.5rem" }} // Evita bugs visuais enquanto estica/colapsa
             >
-              <FormAddFriend />
+              <FormAddFriend onAddFriend={handleAddFriends} />
             </motion.div>
           )}
         </AnimatePresence>

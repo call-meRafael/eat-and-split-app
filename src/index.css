@@ -285,6 +285,33 @@ input::placeholder {
   opacity: .75;
 }
 
+input[type="file"] {
+  color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="file"]::file-selector-button {
+  background-color: var(--color-medium);
+  color: hsl(var(--color-lightest) / 1);
+  text-shadow: 1px 1px 1px hsl(var(--darkgreen) / 1);
+  padding-block: .5rem;
+  padding-inline: 1rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  box-shadow: var(--shadow-s);
+  font-variant: small-caps;
+  font-size: 1.45rem;
+  font-weight: 600;
+  margin-left: 5rem;
+  cursor: pointer;
+  /* filter: drop-shadow(1px 1px 1px hsl(var(--black) / .45)); */
+
+  @media (min-width: 48rem) {
+    margin-left: 1.75rem;
+  }
+}
+
 form .button {
   margin-top: 0.6rem;
   grid-column: 1 / -1; /* botão ocupa a largura toda no mobile */
