@@ -2,11 +2,11 @@ import { Button } from "./buttonAddFriend";
 
 export const Friend = ({ friend, formatBalance }) => {
   return (
-    <li>
+    <li className="friend">
       <div className="avatar-box">
         <img src={friend.image} alt={friend.name} />
       </div>
-      <div className="firend-info">
+      <div className="friend-info">
         <h3>{friend.name} {friend.lastName}</h3>
         {friend.balance < 0 && (
           <p className="red">

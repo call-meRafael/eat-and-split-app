@@ -60,10 +60,10 @@ body {
   flex-flow: column wrap;
   padding: clamp(1.2rem, 1rem + 1.5vw, 3.2rem);
 
-  @media (min-width: 48rem) {
+  /* @media (min-width: 48rem) {
     place-content: center;
     place-items: center;
-  }
+  } */
 }
 
 img {
@@ -140,10 +140,12 @@ img {
   background-color: hsl(var(--color-lightest) / 1);
   transition: 0.5s;
 
-  & > :nth-last-of-type(1) {
+  & .friend-info {
+    grid-column: 2;
     display: flex;
     flex-direction: column;
     gap: 0.28rem;
+    min-width: 0;
     /* outline: 1px solid red; */
 
     & > h3 {
@@ -206,10 +208,10 @@ img {
   grid-column: 3;
 }
 
-.sidebar > .button {
+/* .sidebar > .button {
   float: right;
   margin-right: 1.2rem;
-}
+} */
 
 .green {
   color: #66a80f;
@@ -238,6 +240,16 @@ form {
   margin-bottom: var(--space-sm);
   padding: var(--space-xs);
   box-shadow: var(--shadow-m);
+
+  & > img {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: clamp(5rem, 4rem + 2vw, 6.5rem);
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: var(--shadow-m);
+  }
 }
 
 .form-split-bill {
@@ -275,8 +287,6 @@ select {
   transition: 0.3s;
 }
 
-
-
 input:focus,
 select:focus {
   outline: none;
@@ -284,12 +294,27 @@ select:focus {
 }
 
 input::placeholder {
-  opacity: .75;
+  opacity: 0.75;
 }
 
 .img-box {
   display: flex;
   width: 100%;
+}
+
+
+
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .file-button {
@@ -310,6 +335,10 @@ input::placeholder {
   }
 }
 
+.img-box .visually-hidden:focus-visible + .file-button {
+  outline: 2px solid var(--color-dark);
+  outline-offset: 2px;
+}
 
 
 input[type="file"] {
@@ -368,13 +397,24 @@ form h2 {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
   }
 
+  .form-add-friend > img {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  .form-add-friend .button {
+    grid-column: 2;
+  }
+
   .form-split-bill {
     grid-template-columns: minmax(0, 1fr) minmax(9rem, 12rem);
   }
 
-  form .button {
-    grid-column: 2;
+  .img-box .file-button {
+    margin-inline: 0;
+    width: 100%;
   }
+
 }
 
 /* ≥ 768px — layout de duas colunas (lista + formulários) */
@@ -383,6 +423,14 @@ form h2 {
     /* mesmas proporções do original (34 : 44), mas elásticas */
     grid-template-columns: minmax(26rem, 34fr) minmax(30rem, 44fr);
     align-items: start;
+  }
+
+  .form-split-bill {
+    grid-template-columns: minmax(0, 1fr) minmax(10rem, 14rem);
+  }
+
+  .form-split-bill .button {
+    grid-column: 2;
   }
 }
 

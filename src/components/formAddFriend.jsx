@@ -19,11 +19,9 @@ export const FormAddFriend = ({ onAddFriend }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-     if (!name.trim()) return;
+    if (!name.trim()) return;
 
-      const imageUrl = image
-        ? URL.createObjectURL(image)
-        : "avatar-padrao.webp";
+    const imageUrl = image ? URL.createObjectURL(image) : "avatar-padrao.webp";
 
     const newFriend = {
       id: crypto.randomUUID(),
@@ -52,19 +50,25 @@ export const FormAddFriend = ({ onAddFriend }) => {
         id="iFriend-name"
         placeholder="Nome do amigo"
       />
-      <div className="img-box">
+
+      <label htmlFor="iImage-url">
         <UserAvatar />
-        <label htmlFor="iImage-url" className="file-button">
-          Escolher arquivo
-        </label>
+        Foto
+      </label>
+
+      <div className="img-box">
         <input
           type="file"
           id="iImage-url"
           onChange={handleImageChange}
           accept="image/*"
-          hidden // input some, mas o label continua funcionando
+          className="visually-hidden"
         />
       </div>
+
+      <label htmlFor="iImage-url" className="file-button">
+        Escolher arquivo
+      </label>
 
       {image && <img src={URL.createObjectURL(image)} alt={name} />}
 
